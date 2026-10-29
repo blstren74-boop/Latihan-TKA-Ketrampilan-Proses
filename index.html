@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal HOTS TKA Biologi SMA - Keterampilan Proses Sains</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #2563eb;
+            --secondary: #0d9488;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --tag-bg: #e0f2fe;
+            --tag-text: #0369a1;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            margin: 0;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 28px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #0f766e;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .question-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .question-number {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .topic-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .question-text {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #0f172a;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 18px 0;
+            font-size: 13.5px;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid #94a3b8;
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        .data-table th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .data-table td.left-align {
+            text-align: left;
+        }
+
+        .options-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+        }
+
+        .option-item {
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #f8fafc;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+            transition: background-color 0.15s ease;
+        }
+
+        .option-item:hover {
+            background-color: #f1f5f9;
+        }
+
+        .option-label {
+            font-weight: 700;
+            margin-right: 12px;
+            color: var(--primary-light);
+            min-width: 20px;
+        }
+
+        .explanation-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-light);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 0;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .explanation-toggle:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .explanation-box.active {
+            display: block;
+        }
+
+        .correct-answer {
+            font-weight: 700;
+            color: #15803d;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .explanation-content {
+            color: #1e293b;
+            text-align: justify;
+        }
+
+        @media print {
+            .action-buttons, .explanation-toggle {
+                display: none !important;
+            }
+            .explanation-box {
+                display: block !important;
+                background-color: #f8fafc;
+                border-left-color: #475569;
+                color: #0f172a;
+            }
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .question-card {
+                break-inside: avoid;
+                border: 1px solid #cbd5e1;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Paket Soal HOTS TKA Biologi SMA - Keterampilan Proses Sains</h1>
+        <p>Penguasaan Metodologi Ilmiah: Merumuskan Pertanyaan Ilmiah, Merancang Penyelidikan (Variabel Penelitian), serta Mengolah Data & Menyimpulkan Hasil Eksperimen pada Konteks Biologi.</p>
+    </header>
+
+    <div class="action-buttons">
+        <button class="btn btn-secondary" onclick="toggleAllExplanations()">Tampilkan/Sembunyikan Pembahasan</button>
+        <button class="btn" onclick="window.print()">Cetak / Simpan ke PDF</button>
+    </div>
+
+    <!-- SOAL 1 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 1</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti lingkungan mengamati fenomena penurunan kerapatan populasi kerang hijau di kawasan pesisir pantai Teluk Jakarta. Ia menduga bahwa limbah kadmium (Cd) dari muara sungai berdekatan mempengaruhi laju filtrasi dan kelangsungan hidup kerang tersebut. Peneliti ingin melakukan penyelidikan laboratorium terkontrol. Manakah rumusan pertanyaan penelitian yang paling tepat dan dapat diselidiki secara ilmiah?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mengapa limbah industri berbahaya jika dibuang langsung ke kawasan ekosistem pesisir?</li>
+            <li class="option-item"><span class="option-label">B.</span> Bagaimanakah pengaruh variasi konsentrasi kadmium cair terhadap laju filtrasi air oleh kerang hijau dalam wadah akuarium?</li>
+            <li class="option-item"><span class="option-label">C.</span> Apakah masyarakat pesisir Teluk Jakarta menyetujui penutupan pabrik pencemar kadmium?</li>
+            <li class="option-item"><span class="option-label">D.</span> Seberapa mahalkah biaya yang dibutuhkan untuk membersihkan seluruh limbah logam berat di laut?</li>
+            <li class="option-item"><span class="option-label">E.</span> Apakah kerang hijau merupakan organisme paling berharga dalam rantai makanan ekosistem pesisir?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(1)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-1">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Pertanyaan yang dapat diselidiki secara ilmiah harus menghubungkan variabel bebas (konsentrasi kadmium) dengan variabel terikat (laju filtrasi kerang hijau) secara jelas, spesifik, serta dapat diukur (kuantitatif) melalui eksperimen terkontrol di laboratorium. Opsi A, C, D, dan E bersifat terlalu luas, normatif, atau menilai Opini/value judgment.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 2 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 2</span>
+            <span class="topic-tag">Merancang Penyelidikan (Variabel)</span>
+        </div>
+        <div class="question-text">
+            Tim siswa merancang eksperimen untuk menguji transpor membran osmosis pada potongan umbi kentang. Mereka menyediakan 5 tabung reaksi yang diisi larutan sukrosa dengan konsentrasi berbeda: 0%, 5%, 10%, 15%, dan 20%. Setiap tabung dimasukkan potongan kentang dengan massa awal persis 5,0 gram selama 60 menit. Dari rancangan eksperimen ini, manakah pasangan variabel bebas, variabel terikat, dan variabel kontrol yang paling tepat?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Variabel Bebas: Konsentrasi larutan sukrosa; Variabel Terikat: Perubahan massa kentang; Variabel Kontrol: Massa awal kentang dan lama perendaman.</li>
+            <li class="option-item"><span class="option-label">B.</span> Variabel Bebas: Massa akhir kentang; Variabel Terikat: Konsentrasi larutan sukrosa; Variabel Kontrol: Jenis tabung reaksi.</li>
+            <li class="option-item"><span class="option-label">C.</span> Variabel Bebas: Lama perendaman; Variabel Terikat: Bentuk potongan kentang; Variabel Kontrol: Konsentrasi sukrosa.</li>
+            <li class="option-item"><span class="option-label">D.</span> Variabel Bebas: Perubahan volume larutan; Variabel Terikat: Massa awal kentang; Variabel Kontrol: Suhu ruangan.</li>
+            <li class="option-item"><span class="option-label">E.</span> Variabel Bebas: Konsentrasi larutan sukrosa; Variabel Terikat: Lama perendaman; Variabel Kontrol: Perubahan massa kentang.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(2)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-2">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                <strong>Variabel Bebas</strong> adalah faktor yang sengaja diubah/divariasikan (konsentrasi sukrosa 0% - 20%). <strong>Variabel Terikat</strong> adalah respon yang diukur akibat perlakuan (perubahan massa kentang). <strong>Variabel Kontrol</strong> adalah faktor lain yang dibuat konstan agar tidak mengganggu hasil (massa awal 5,0 gram, lama perendaman 60 menit, suhu, dan asal umbi kentang).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 3 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 3</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Seorang siswa menguji pengaruh pH lingkungan terhadap aktivitas enzim amilase saliva. Hasil pengukuran kadar maltosa yang terbentuk setelah incubation 10 menit disajikan dalam tabel berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>pH Larutan</th>
+                        <th>Kadar Maltosa Terbentuk (mg/mL)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>3.0</td><td>0.1</td></tr>
+                    <tr><td>5.0</td><td>1.4</td></tr>
+                    <tr><td>7.0</td><td>4.8</td></tr>
+                    <tr><td>8.0</td><td>3.2</td></tr>
+                    <tr><td>10.0</td><td>0.2</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan pengolahan data tabel di atas, kesimpulan ilmiah yang paling valid mengenai sifat kerja enzim amilase saliva adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Enzim amilase saliva bekerja paling efektif pada kondisi asam kuat pH 3.0.</li>
+            <li class="option-item"><span class="option-label">B.</span> Laju reaksi amilase saliva meningkat secara linear seiring dengan kenaikan pH dari 3.0 hingga 10.0.</li>
+            <li class="option-item"><span class="option-label">C.</span> Enzim amilase saliva memiliki pH optimum di sekitar pH netral (7.0) dan aktivitasnya menurun pada kondisi terlalu asam atau basa.</li>
+            <li class="option-item"><span class="option-label">D.</span> Perubahan pH tidak mempengaruhi struktur konformasi sisi aktif enzim amilase saliva.</li>
+            <li class="option-item"><span class="option-label">E.</span> Amilase terdenaturasi total pada pH 7.0 sehingga produk maltosa melimpah.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(3)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-3">
+            <div class="correct-answer">Kunci Jawaban: C</div>
+            <div class="explanation-content">
+                Data menunjukkan bahwa produksi maltosa mencapai puncak tertinggi (4.8 mg/mL) pada pH 7.0. Pada pH lebih rendah (3.0 dan 5.0) maupun lebih tinggi (8.0 dan 10.0), kadar maltosa menurun signifikan. Hal ini menyimpulkan bahwa amilase saliva memiliki pH optimum dekat netral (7.0) dan sensitif terhadap ekses asam maupun basa.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 4 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 4</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Di kawasan Taman Nasional Gunung Leuser, ditemukan populasi tumbuhan kantong semar (Nepenthes sp.) yang tumbuh melimpah pada tanah gambut miskin unsur hara nitrogen. Seorang peneliti memperhatikan bahwa kantong semar yang berada di area terbuka dan menangkap lebih banyak serangga tumbuh lebih cepat dibandingkan yang ternaungi. Manakah pertanyaan hipotesis ilmiah yang paling relevan untuk penyelidikan lanjutan?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Apakah nitrogen hasil pencernaan serangga oleh Nepenthes memicu peningkatan laju pembelahan sel dan pertumbuhan tanaman di tanah miskin hara?</li>
+            <li class="option-item"><span class="option-label">B.</span> Mengapa serangga tertarik masuk ke dalam kantong semar yang berwarna cerah?</li>
+            <li class="option-item"><span class="option-label">C.</span> Berapa jeniskah spesies Nepenthes yang tersebar di seluruh pulau Sumatra?</li>
+            <li class="option-item"><span class="option-label">D.</span> Apakah Nepenthes merupakan tanaman tercantik di ekosistem hutan hujan tropis?</li>
+            <li class="option-item"><span class="option-label">E.</span> Bagaimanakah cara mencegah serangga agar tidak terjerumus ke dalam cairan kantong semar?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(4)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-4">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan ilmiah yang mengarah pada hipotesis teruji harus menghubungkan mekanisme fisiologis (nitrogen dari digesti serangga) dengan variabel terikat yang terukur (laju pembelahan sel/pertumbuhan tanaman) pada kondisi habitat spesifik (tanah miskin hara).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 5 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 5</span>
+            <span class="topic-tag">Merancang Penyelidikan (Langkah Eksperimen)</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti ingin menguji efektivitas ekstrak daun sirih hijau (*Piper betle*) sebagai agen antibakteri terhadap pertumbuhan *Staphylococcus aureus*. Peneliti menyiapkan cawan petri berisi media agar yang diinokulasi bakteri, lalu meletakkan kertas cakram yang direndam ekstrak daun sirih dengan konsentrasi 0%, 10%, 20%, dan 30%. Untuk menjamin validitas data zona hambat (zona bening), rancangan perlakukan manakah yang wajib ditambahkan sebagai kontrol negatif dan kontrol positif?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Kontrol Negatif: Aquades steril pada kertas cakram; Kontrol Positif: Kertas cakram direndam antibiotik komersial (seperti Amoksisilin).</li>
+            <li class="option-item"><span class="option-label">B.</span> Kontrol Negatif: Alkohol 96%; Kontrol Positif: Air perasan jeruk nipis murni.</li>
+            <li class="option-item"><span class="option-label">C.</span> Kontrol Negatif: Ekstrak daun sirih 100%; Kontrol Positif: Cawan petri tanpa media agar.</li>
+            <li class="option-item"><span class="option-label">D.</span> Kontrol Negatif: Bakteri *E. coli*; Kontrol Positif: Bakteri *S. aureus* tanpa kertas cakram.</li>
+            <li class="option-item"><span class="option-label">E.</span> Kontrol Negatif: Aquades steril; Kontrol Positif: Minyak kelapa sawit murni.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(5)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-5">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Dalam uji aktivitas antibakteri: <strong>Kontrol Negatif</strong> (aquades steril) digunakan untuk memastikan bahwa pelarut/kertas cakram tidak memiliki daya hambat alami secara mandiri. <strong>Kontrol Positif</strong> (antibiotik komersial teruji) digunakan sebagai standar pembanding untuk membuktikan bahwa metode uji dan bakteri yang digunakan responsif terhadap agen antibakteri.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 6 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 6</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Dalam eksperimen pengukuran laju fotosintesis tumbuhan air *Hydrilla verticillata* menggunakan alat Ingenhousz, diperoleh data jumlah gelembung udara per 5 menit pada berbagai jarak lampu penerang sebagai berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Jarak Lampu dari Tumbuhan (cm)</th>
+                        <th>Jumlah Gelembung (5 Menit I)</th>
+                        <th>Jumlah Gelembung (5 Menit II)</th>
+                        <th>Rata-rata Gelembung per 5 Menit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>10</td><td>85</td><td>87</td><td>86</td></tr>
+                    <tr><td>20</td><td>52</td><td>50</td><td>51</td></tr>
+                    <tr><td>30</td><td>24</td><td>26</td><td>25</td></tr>
+                    <tr><td>40</td><td>10</td><td>12</td><td>11</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan pengolahan data tersebut, grafik dan kesimpulan hubungan antara intensitas cahaya (diwakili jarak lampu) dan laju fotosintesis adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Semakin jauh jarak lampu, intensitas cahaya semakin tinggi sehingga laju fotosintesis meningkat pesat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Jarak lampu tidak berpengaruh terhadap laju pembentukan gas oksigen pada Hydrilla.</li>
+            <li class="option-item"><span class="option-label">C.</span> Semakin dekat jarak lampu, intensitas cahaya yang diterima semakin tinggi sehingga laju fotosintesis (ditandai jumlah gelembung gas) semakin meningkat.</li>
+            <li class="option-item"><span class="option-label">D.</span> Laju fotosintesis paling optimal dicapai pada jarak lampu 40 cm karena tanaman tidak mengalami kepanasan.</li>
+            <li class="option-item"><span class="option-label">E.</span> Gelembung udara yang terbentuk adalah gas karbon dioksida hasil respirasi aerob Hydrilla.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(6)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-6">
+            <div class="correct-answer">Kunci Jawaban: C</div>
+            <div class="explanation-content">
+                Makin kecil jarak lampu (10 cm), intensitas cahaya yang mengenai tumbuhan semakin tinggi, menghasilkan rata-rata gelembung terbanyak (86 gelembung). Hal ini menunjukkan hubungan berbanding lurus antara intensitas cahaya dan laju fotosintesis (produksi gas O2).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 7 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 7</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Seorang dokter spesialis paru menganalisis data kapasitas vital paru-paru pada dua kelompok subjek: perokok aktif selama 10 tahun dan non-perokok dengan kelompok usia yang sama. Ia menemukan penurunan rerata kapasitas vital paru yang signifikan sebesar 25% pada kelompok perokok aktif. Pertanyaan penelitian manakah yang paling tepat untuk menguji mekanisme biologi seluler di balik penurunan tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Bagaimanakah pengaruh akumulasi tar rokok terhadap kerusakan struktur silia sel epitel mukosa saluran pernapasan dan elastisitas alveolus?</li>
+            <li class="option-item"><span class="option-label">B.</span> Berapakah harga rata-rata satu bungkus rokok yang dikonsumsi oleh perokok aktif setiap hari?</li>
+            <li class="option-item"><span class="option-label">C.</span> Apakah perokok aktif menyadari bahwa rokok dapat merugikan kesehatan orang di sekitarnya?</li>
+            <li class="option-item"><span class="option-label">D.</span> Mengapa pabrik rokok tetap beroperasi di Indonesia meskipun berbahaya?</li>
+            <li class="option-item"><span class="option-label">E.</span> Bagaimanakah cara membujuk perokok agar berhenti merokok dalam waktu satu hari?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(7)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-7">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan ilmiah yang berfokus pada tingkat biologi seluler dan fisiologi harus menghubungkan komponen kimiawi (tar rokok) dengan kerusakan struktur sel (silia epitel) dan organ (elastisitas alveolus paru).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 8 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 8</span>
+            <span class="topic-tag">Merancang Penyelidikan (Rancangan Percobaan)</span>
+        </div>
+        <div class="question-text">
+            Siswa melakukan eksperimen respirasi anaerob (fermentasi alkohol) menggunakan ragi *Saccharomyces cerevisiae*. Mereka mencampur 5 gram ragi dan 10 gram glukosa ke dalam labu Erlenmeyer yang ditutup balon karet. Untuk membuktikan bahwa gas yang menggelembungkan balon adalah $CO_2$ dan reaksi bersifat eksoterm, langkah pengukuran pendukung apakah yang wajib dirancang dalam percobaan tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mengalirkan gas hasil reaksi ke dalam tabung berisi air kapur $Ca(OH)_2$ hingga keruh serta mengukur perubahan suhu larutan menggunakan termometer.</li>
+            <li class="option-item"><span class="option-label">B.</span> Menimbang massa total Erlenmeyer di atas timbangan digital setiap 5 detik tanpa membuka balon.</li>
+            <li class="option-item"><span class="option-label">C.</span> Menyinari Erlenmeyer dengan lampu ultraviolet dan mengukur perubahan warna ragi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Menambahkan indikator universal cair ke dalam ragi dan membiarkannya terbuka di udara bebas.</li>
+            <li class="option-item"><span class="option-label">E.</span> Mengukur panjang gelombang cahaya yang dipancarkan oleh campuran ragi.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(8)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-8">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Uji spesifik gas $CO_2$ dilakukan dengan mengalirkannya ke air kapur $Ca(OH)_2$ yang akan membentuk endapan putih $CaCO_3$ (keruh). Untuk membuktikan reaksi eksoterm (pelepasan kalor), perubahan kenaikan suhu larutan diukur menggunakan termometer.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 9 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 9</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Seorang ahli ekologi melakukan pengamatan Indeks Keanekaragaman Spesies Burung (H') pada tiga tipe zonasi ekosistem hutan di Taman Nasional Meru Betiri. Data yang diperoleh disajikan dalam tabel berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Zona Hutan</th>
+                        <th>Jumlah Spesies Terdata</th>
+                        <th>Indeks Keanekaragaman (H')</th>
+                        <th>Tingkat Gangguan Manusia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Zona Inti (Hutan Primar)</td><td>42</td><td>3.45</td><td>Sangat Rendah</td></tr>
+                    <tr><td>Zona Pemanfaatan (Ekoturisme)</td><td>28</td><td>2.10</td><td>Sedang</td></tr>
+                    <tr><td>Zona Penyangga (Perkebunan Warga)</td><td>12</td><td>1.05</td><td>Tinggi</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan analisis tabel di atas, kesimpulan ilmiah yang paling tepat mengenai hubungan aktivitas manusia dan keanekaragaman hayati adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Peningkatan tingkat gangguan aktivitas manusia berbanding terbalik dengan indeks keanekaragaman spesies burung.</li>
+            <li class="option-item"><span class="option-label">B.</span> Zona penyangga memiliki indeks keanekaragaman burung tertinggi karena melimpahnya pakan dari perkebunan.</li>
+            <li class="option-item"><span class="option-label">C.</span> Aktivitas ekoturisime pada zona pemanfaatan meningkatkan jumlah spesies burung secara drastis.</li>
+            <li class="option-item"><span class="option-label">D.</span> Indeks keanekaragaman spesies burung tidak dipengaruhi oleh struktur integritas habitat hutan.</li>
+            <li class="option-item"><span class="option-label">E.</span> Burung di zona inti mengalami kepunahan karena kurangnya interaksi dengan manusia.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(9)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-9">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Data menunjukkan bahwa semakin tinggi tingkat gangguan manusia (Zona Inti -> Pemanfaatan -> Penyangga), maka Indeks Keanekaragaman (H') dan jumlah spesies burung semakin menurun (3.45 -> 2.10 -> 1.05). Ini membuktikan hubungan berbanding terbalik.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 10 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 10</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Seorang siswa membaca artikel medis tentang pasien terinfeksi *Salmonella typhi* yang diberi antibiotik siprofloksasin. Peneliti menemukan bahwa beberapa galur *S. typhi* menunjukkan tingkat kelangsungan hidup yang lebih tinggi meskipun diberi dosis antibiotik standar. Manakah pertanyaan penelitian yang teruji secara eksperimental untuk menganalisis fenomena tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Mengapa pasien merasa tidak nyaman saat menderita penyakit demam tifoid?</li>
+            <li class="option-item"><span class="option-label">B.</span> Bagaimanakah pengaruh paparan dosis bertingkat siprofloksasin terhadap laju mutasi gen penyandi target antibiotik pada populasi *Salmonella typhi*?</li>
+            <li class="option-item"><span class="option-label">C.</span> Berapakah jumlah uang yang dihemat pasien jika tidak membeli antibiotik siprofloksasin?</li>
+            <li class="option-item"><span class="option-label">D.</span> Apakah semua jenis bakteri Gram-negatif dipastikan kebal terhadap semua jenis antibiotik?</li>
+            <li class="option-item"><span class="option-label">E.</span> Mengapa antibiotik diciptakan oleh perusahaan farmasi di dunia?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(10)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-10">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Pertanyaan B dapat diselidiki secara eksperimental di laboratorium dengan mengatur variabel bebas (dosis siprofloksasin) dan mengukur variabel terikat (laju mutasi/resistensi genetik bakteri).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 11 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 11</span>
+            <span class="topic-tag">Merancang Penyelidikan (Kesalahan Metodologi)</span>
+        </div>
+        <div class="question-text">
+            Seorang mahasiswa melakukan eksperimen untuk menguji laju pembentukan denyut nadi manusia setelah berolahraga. Ia mengukur denyut nadi 5 siswa laki-laki setelah berlari selama 10 menit. Namun, ia tidak mengukur denyut nadi istirahat (sebelum berlari) dari kelima siswa tersebut. Apakah kelemahan metodologis utama dari rancangan penelitian ini?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Peneliti tidak memiliki data kontrol (baseline) awal untuk menghitung besarnya kenaikan laju denyut nadi secara akurat.</li>
+            <li class="option-item"><span class="option-label">B.</span> Penelitian tersebut seharusnya menggunakan hewan uji seperti mencit, bukan manusia.</li>
+            <li class="option-item"><span class="option-label">C.</span> Berlari selama 10 menit merupakan waktu yang terlalu lama untuk mengukur denyut nadi.</li>
+            <li class="option-item"><span class="option-label">D.</span> Pengukuran denyut nadi seharusnya menggunakan elektrokardiogram di rumah sakit.</li>
+            <li class="option-item"><span class="option-label">E.</span> Peneliti tidak menghitung kadar eritrosit di dalam darah subjek.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(11)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-11">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Data *baseline* (denyut nadi istirahat sebelum perlakuan) sangat krusial berfungsi sebagai kontrol internal. Tanpa data awal, peneliti tidak dapat menentukan apakah frekuensi denyut nadi pasca-olahraga disebabkan oleh efek olahraga atau memang denyut awal individu tersebut yang dasarnya sudah tinggi.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 12 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 12</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Siswa mengukur volume urine yang dikeluarkan oleh 3 kelompok relawan selama 4 jam setelah meminum jenis cairan yang berbeda dengan volume persis 500 mL pada suhu ruangan konstan:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Kelompok Relawan</th>
+                        <th>Jenis Cairan Diminum (500 mL)</th>
+                        <th>Rata-Rata Volume Urine Dihasilkan (mL)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Kelompok A</td><td>Air Putih Biasa</td><td>420</td></tr>
+                    <tr><td>Kelompok B</td><td>Larutan Garam Fisiologis (Isotonik 0.9%)</td><td>210</td></tr>
+                    <tr><td>Kelompok C</td><td>Minuman Berkafein (Kopi)</td><td>680</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan data di atas, mekanisme hormonal dan kesimpulan yang paling tepat adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Kafein merangsang produksi hormon ADH sehingga ginjal menyerap kembali lebih banyak air.</li>
+            <li class="option-item"><span class="option-label">B.</span> Minuman berkafein menghambat sekresi hormon ADH sehingga reabsorpsi air di tubulus ginjal menurun dan volume urine meningkat (diuretik).</li>
+            <li class="option-item"><span class="option-label">C.</span> Larutan garam isotonik menghancurkan saluran filtrasi glomerulus sehingga urine tidak terbentuk.</li>
+            <li class="option-item"><span class="option-label">D.</span> Air putih biasa menyebabkan pembengkakan pada organ kandung kemih relawan.</li>
+            <li class="option-item"><span class="option-label">E.</span> Jenis minuman tidak memberikan pengaruh terhadap fungsi homeostasis ginjal.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(12)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-12">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Kelompok C (kafein) menghasilkan urine terbanyak (680 mL). Secara fisiologis, kafein bersifat diuretik dengan cara menghambat pelepasan ADH (Anti-Diuretic Hormone) dari hipofisis posterior atau menghambat reabsorpsi natrium di tubulus ginjal, sehingga reabsorpsi air berkurang dan produksi urine meningkat.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 13 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 13</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Di ekosistem perairan Danau Toba, ditemukan fenomena ledakan populasi eceng gondok (*Eichhornia crassipES*) yang menutupi permukaan air setelah masuknya limbah fosfat dari keramba jaring apung. Nelayan mengeluhkan kematian massal ikan secara mendadak di dasar danau. Pertanyaan penelitian ilmiah manakah yang menghubungkan fenomena eutrofikasi ini dengan kelangsungan hidup ikan?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Bagaimanakah pengaruh pembusukan eceng gondok oleh dekomposer terhadap penurunan kadar oksigen terlarut (Dissolved Oxygen) dan tingkat kematian ikan?</li>
+            <li class="option-item"><span class="option-label">B.</span> Berapakah jumlah eceng gondok yang dapat dijual untuk kerajinan tangan lokal?</li>
+            <li class="option-item"><span class="option-label">C.</span> Mengapa eceng gondok memiliki bunga berwarna ungu yang indah?</li>
+            <li class="option-item"><span class="option-label">D.</span> Bagaimanakah cara memusnahkan semua jenis tanaman air di Danau Toba?</li>
+            <li class="option-item"><span class="option-label">E.</span> Apakah nelayan merasa dirugikan secara finansial oleh keberadaan eceng gondok?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(13)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-13">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan A merumuskan hubungan kausalitas ekologis ilmiah: pembusukan biomassa eceng gondok oleh bakteri membutuhkan konsumsi oksigen dalam jumlah besar, menurunkan *Dissolved Oxygen* (DO) di dalam air, yang menyebabkan anoksia dan kematian ikan.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 14 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 14</span>
+            <span class="topic-tag">Merancang Penyelidikan (Isolasi Variabel)</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti ingin menguji efek pemberian hormon auksin (IAA) terhadap pembentukan akar adventif pada stek batang tanaman lada. Peneliti menggunakan 4 kelompok stek. Agar eksperimen ini valid, manakah kondisi variabel kontrol yang harus dijaga tetap sama antar kelompok?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Konsentrasi hormon auksin, panjang potong batang, dan jenis media tanam.</li>
+            <li class="option-item"><span class="option-label">B.</span> Umur tanaman induk, panjang stek batang, intensitas cahaya, dan kelembapan media tanam.</li>
+            <li class="option-item"><span class="option-label">C.</span> Jumlah akar adventif yang tumbuh dan konsentrasi auksin.</li>
+            <li class="option-item"><span class="option-label">D.</span> Waktu munculnya akar pertama dan konsentrasi larutan auksin.</li>
+            <li class="option-item"><span class="option-label">E.</span> Jenis hormon yang digunakan dan jumlah daun yang dihasilkan.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(14)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-14">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Variabel kontrol harus mencakup seluruh faktor lingkungan dan fisiologis organ stek (umur induk, panjang stek, cahaya, air/kelembapan) agar perbedaan respon pertumbuhan akar murni disebabkan oleh variasi perlakuan konsentrasi auksin (variabel bebas).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 15 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 15</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Diukur laju fotosintesis tanaman C3 (padi) dan tanaman C4 (jagung) pada berbagai variasi konsentrasi $CO_2$ lingkungan pada suhu hangat (30℃). Data disajikan berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Konsentrasi $CO_2$ (ppm)</th>
+                        <th>Laju Fotosintesis Padi / C3 (μmol/m²/s)</th>
+                        <th>Laju Fotosintesis Jagung / C4 (μmol/m²/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>100</td><td>5</td><td>22</td></tr>
+                    <tr><td>200</td><td>14</td><td>38</td></tr>
+                    <tr><td>380 (Normal)</td><td>25</td><td>40</td></tr>
+                    <tr><td>600</td><td>36</td><td>40</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan analisis data tabel, kesimpulan yang paling tepat mengenai karakteristik enzim fiksasi karbon pada tanaman C3 dan C4 adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Tanaman C3 mencapai titik jenuh fotosintesis pada konsentrasi $CO_2$ lebih rendah dibandingkan tanaman C4.</li>
+            <li class="option-item"><span class="option-label">B.</span> Enzim PEP karboksilase pada tanaman C4 memiliki afinitas pengikatan $CO_2$ jauh lebih tinggi daripada Rubisco pada tanaman C3 pada konsentrasi $CO_2$ rendah.</li>
+            <li class="option-item"><span class="option-label">C.</span> Tanaman C3 tidak mampu melangsungkan fotosintesis di atas konsentrasi $CO_2$ 380 ppm.</li>
+            <li class="option-item"><span class="option-label">D.</span> Peningkatan konsentrasi $CO_2$ selalu menurunkan laju fotosintesis pada semua jenis tanaman.</li>
+            <li class="option-item"><span class="option-label">E.</span> Tanaman C4 tidak membutuhkan enzim dalam proses pembentukan glukosa.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(15)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-15">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Pada $CO_2$ rendah (100–200 ppm), tanaman C4 memiliki laju fotosintesis jauh lebih tinggi (22–38 μmol/m²/s) dibanding C3 (5–14 μmol/m²/s). Hal ini membuktikan bahwa enzim PEP karboksilase pada C4 memiliki afinitas jauh lebih tinggi terhadap $CO_2$ daripada enzim Rubisco pada C3. C4 juga mencapai titik jenuh (saturasi) lebih cepat pada 380 ppm.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 16 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 16</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Di kawasan hutan lindung Kalimantan, ditemukan dua varietas anggrek epifit yang hidup menempel pada pohon inang yang sama. Varietas A tumbuh subur di bagian tajuk atas yang terpapar sinar matahari langsung, sedangkan Varietas B hanya tumbuh di bagian pangkal batang yang terlindung dan lembap. Pertanyaan manakah yang tepat untuk menguji adaptasi pigmen fotosintesis kedua varietas tersebut?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Bagaimanakah perbedaan rasio klorofil a/b dan kadar pigmen karotenoid antara anggrek Varietas A dan Varietas B terhadap efisiensi penyerapan intensitas cahaya?</li>
+            <li class="option-item"><span class="option-label">B.</span> Mengapa bunga anggrek epifit sangat disukai oleh pecinta tanaman hias?</li>
+            <li class="option-item"><span class="option-label">C.</span> Berapakah harga jual kedua varietas anggrek tersebut di pasaran?</li>
+            <li class="option-item"><span class="option-label">D.</span> Apakah pohon inang merasa terganggu oleh kehadiran kedua varietas anggrek?</li>
+            <li class="option-item"><span class="option-label">E.</span> Bagaimanakah cara memindahkan anggrek tersebut ke dalam pot plastik?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(16)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-16">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan A secara akurat menghubungkan variabel fungsional biologi sel (rasio klorofil a/b dan karotenoid) dengan perbedaan variabel lingkungan alami (intensitas cahaya pada tajuk vs pangkal batang).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 17 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 17</span>
+            <span class="topic-tag">Merancang Penyelidikan (Hipotesis)</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti ingin menguji hipotesis bahwa "Hormon giberelin ($GA_3$) memicu pemutusan dormansi biji kacang hijau dengan merangsang sintesis enzim alfa-amilase di lapisan aleuron." Manakah rancangan perlakukan yang paling valid untuk membuktikan hipotesis ini secara ilmiah?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Membandingkan kadar alfa-amilase dan persentase perkecambahan pada kelompok biji yang direndam larutan $GA_3$ dengan kelompok biji yang direndam air steril (tanpa $GA_3$).</li>
+            <li class="option-item"><span class="option-label">B.</span> Mendidihkan biji kacang hijau sebelum direndam hormon $GA_3$.</li>
+            <li class="option-item"><span class="option-label">C.</span> Menyinari biji kacang hijau dengan lampu inframerah tanpa memberi air.</li>
+            <li class="option-item"><span class="option-label">D.</span> Mengupas seluruh kulit biji dan menyimpan biji di dalam ruang hampa udara.</li>
+            <li class="option-item"><span class="option-label">E.</span> Memberi pupuk NPK dosis tinggi pada media tanam tanah tanpa memberi hormon.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(17)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-17">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Untuk menguji kerja $GA_3$ dalam memicu alfa-amilase, peneliti harus mengukur dua respons terikat (kadar enzim alfa-amilase dan laju perkecambahan) pada kelompok perlakuan $GA_3$ dan membandingkannya secara eksplisit dengan kelompok kontrol tanpa $GA_3$.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 18 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 18</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Seorang peneliti mengukur laju filtrasi glomerulus (GFR) dan reabsorpsi glukosa pada ginjal pasien dengan tingkat kadar glukosa darah berfariasi. Data laboratorium tercatat sebagai berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Kadar Glukosa Darah (mg/dL)</th>
+                        <th>Glukosa Terfiltrasi di Glomerulus (mg/menit)</th>
+                        <th>Glukosa Direabsorpsi di Tubulus (mg/menit)</th>
+                        <th>Glukosa Ditemukan di Urine (mg/menit)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>100 (Normal)</td><td>125</td><td>125</td><td>0</td></tr>
+                    <tr><td>150</td><td>187</td><td>187</td><td>0</td></tr>
+                    <tr><td>200 (Ambang Ginjal)</td><td>250</td><td>250</td><td>0</td></tr>
+                    <tr><td>300</td><td>375</td><td>325 (Maksimal)</td><td>50</td></tr>
+                    <tr><td>400</td><td>500</td><td>325 (Maksimal)</td><td>175</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan pengolahan data tabel, kesimpulan yang paling tepat mengenai kerja transporter glukosa (SGLT2) di tubulus ginjal adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Tubulus ginjal tidak memiliki kapasitas maksimum dalam mereabsorpsi glukosa terfiltrasi.</li>
+            <li class="option-item"><span class="option-label">B.</span> Glucosuria (glukosa diekskresi ke urine) terjadi ketika laju filtrasi glukosa melebihi kapasitas beban reabsorpsi maksimum (Tm) sel tubulus ginjal (sekitar 325 mg/menit).</li>
+            <li class="option-item"><span class="option-label">C.</span> Ginjal menghentikan filtrasi glukosa jika kadar glukosa darah melebihi 200 mg/dL.</li>
+            <li class="option-item"><span class="option-label">D.</span> Reabsorpsi glukosa berlangsung secara difusi pasif tanpa melibatkan protein carrier.</li>
+            <li class="option-item"><span class="option-label">E.</span> Kadar glukosa darah 400 mg/dL menyebabkan kerusakan total pada glomerulus ginjal.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(18)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-18">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Data menunjukkan bahwa reabsorpsi glukosa mencapai batas maksimal (Tm = 325 mg/menit) saat kadar darah > 200 mg/dL. Ketika glukosa terfiltrasi (375 mg/menit) melebihi kapasitas Tm (325 mg/menit), kelebihannya (50 mg/menit) tidak dapat direabsorpsi dan diekskresikan ke dalam urine (glukosuria).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 19 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 19</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Di pulau Sulawesi, ditemukan spesies mamalia endemik babirusa (*Babyrousa babyrussa*) yang mengalami penurunan drastis populasi akibat fragmentasi hutan. Seorang peneliti ingin menyelidiki dampak keterisolasian sub-populasi kecil terhadap kualitas genetik spesimen tersebut. Manakah rumusan pertanyaan yang dapat diselidiki secara molekuler?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Apakah keterisolasian populasi babirusa pada fragmen hutan sempit meningkatkan laju perkawinan sedarah (inbreeding) dan menurunkan tingkat heterozigositas genetik?</li>
+            <li class="option-item"><span class="option-label">B.</span> Mengapa taring babirusa tumbuh mencuat menembus moncong atasnya?</li>
+            <li class="option-item"><span class="option-label">C.</span> Berapakah jumlah wisatawan yang mengunjungi Sulawesi untuk melihat babirusa?</li>
+            <li class="option-item"><span class="option-label">D.</span> Apakah babirusa merupakan hewan paling unik di kawasan Wallacea?</li>
+            <li class="option-item"><span class="option-label">E.</span> Bagaimanakah cara menangkap babirusa liar untuk dipindahkan ke kebun binatang?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(19)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-19">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan A menghubungkan kondisi fragmentasi habitat dengan parameter genetik terukur (*inbreeding depression* dan tingkat heterozigositas DNA) yang dapat diselidiki melalui analisis marka molekuler.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 20 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 20</span>
+            <span class="topic-tag">Merancang Penyelidikan (Sistematika Percobaan)</span>
+        </div>
+        <div class="question-text">
+            Seorang siswa merancang percobaan untuk membuktikan bahwa proses fotosintesis menghasilkan amilum (Uji Sach). Urutan langkah kerja eksperimen yang benar agar hasil perubahan warna dengan larutan lugol/iodin tepat adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Menutup sebagian daun dengan aluminium foil -> Menjemur di bawah cahaya -> Mendidihkan daun dalam air -> Perebusan daun dalam alkohol panas -> Tetesan larutan lugol.</li>
+            <li class="option-item"><span class="option-label">B.</span> Meneteskan lugol pada daun segar -> Mendidihkan dalam alkohol -> Menutup daun dengan aluminium foil.</li>
+            <li class="option-item"><span class="option-label">C.</span> Mendidihkan daun dalam alkohol -> Menjemur di bawah sinar matahari -> Meneteskan air kapur.</li>
+            <li class="option-item"><span class="option-label">D.</span> Merendam daun dalam es batu -> Membakar daun -> Meneteskan indikator pp.</li>
+            <li class="option-item"><span class="option-label">E.</span> Menutup seluruh daun -> Mendidihkan daun dalam air sabun -> Meneteskan lugol.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(20)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-20">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Sistematika Uji Sach: (1) Menutup sebagian daun (kontrol internal), (2) Menjemur agar terjadi fotosintesis, (3) Mendidihkan dalam air (mematikan sel daun), (4) Perebusan dalam alkohol panas (melarutkan klorofil agar daun pucat), (5) Meneteskan lugol (uji amilum: warna biru kehitaman menandakan fotosintesis).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 21 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 21</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Peneliti menguji efektivitas kerja vaksin sistem kekebalan tubuh dengan mengukur konsentrasi antibodi IgG spesifik dalam serum darah relawan setelah suntikan dosis pertama (primer) dan suntikan booster dosis kedua (sekunder):
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Waktu Pasca Suntikan (Hari)</th>
+                        <th>Kadar IgG Respon Primer (Unit/mL)</th>
+                        <th>Kadar IgG Respon Sekunder / Booster (Unit/mL)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hari ke-3</td><td>2</td><td>45</td></tr>
+                    <tr><td>Hari ke-7</td><td>15</td><td>320</td></tr>
+                    <tr><td>Hari ke-14</td><td>80</td><td>1250</td></tr>
+                    <tr><td>Hari ke-28</td><td>30</td><td>980</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan data grafis eksperimen di atas, kesimpulan yang paling tepat mengenai karakteristik respon imun sekunder adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Respon imun sekunder berlangsung lebih lambat tetapi menghasilkan antibodi lebih sedikit dibanding respon primer.</li>
+            <li class="option-item"><span class="option-label">B.</span> Respon imun sekunder terjadi lebih cepat, bertahan lebih lama, dan menghasilkan konsentrasi antibodi jauh lebih tinggi karena adanya pembentukan sel B memori.</li>
+            <li class="option-item"><span class="option-label">C.</span> Suntikan dosis kedua merusak sel-sel plasma penghasil antibodi di dalam sumsum tulang.</li>
+            <li class="option-item"><span class="option-label">D.</span> Respon imun primer tidak membutuhkan keterlibatan limfosit spesifik.</li>
+            <li class="option-item"><span class="option-label">E.</span> Kadar antibodi IgG selalu konstan dan tidak terpengaruh oleh jumlah paparan antigen.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(21)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-21">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Data memperlihatkan bahwa pada respon sekunder (hari ke-14), kadar IgG melonjak hingga 1250 Unit/mL (jauh lebih tinggi dibanding respon primer yang hanya 80 Unit/mL) serta merespon lebih cepat sejak hari ke-3 (45 Unit/mL). Hal ini membuktikan efektivitas sel B memori hasil sensitisasi awal.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 22 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 22</span>
+            <span class="topic-tag">Merumuskan Pertanyaan Ilmiah</span>
+        </div>
+        <div class="question-text">
+            Seorang ahli kardiologi mengamati bahwa pasien hipertensi yang mengonsumsi obat golongan *ACE Inhibitor* (penghambat enzim pengubah angiotensin) menunjukkan penurunan tekanan darah yang signifikan disertai penurunan retensi sodium oleh ginjal. Manakah pertanyaan penelitian yang tepat untuk menganalisis jalur hormonal terkait?
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Bagaimanakah peranan inhibisi konversi Angiotensin I menjadi Angiotensin II terhadap penurunan sekresi hormon Aldosteron dari korteks adrenal?</li>
+            <li class="option-item"><span class="option-label">B.</span> Berapakah jumlah obat ACE Inhibitor yang diproduksi oleh apotek setiap tahun?</li>
+            <li class="option-item"><span class="option-label">C.</span> Mengapa penderita hipertensi merasa cemas saat diperiksa dokter?</li>
+            <li class="option-item"><span class="option-label">D.</span> Apakah hipertensi dapat disembuhkan hanya dengan mendengarkan musik klasik?</li>
+            <li class="option-item"><span class="option-label">E.</span> Bagaimanakah bentuk fisik tablet obat peningkat tekanan darah?</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(22)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-22">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pertanyaan A merumuskan mekanisme fisiologis spesifik: penghambatan enzim ACE mencegah pembentukan Angiotensin II, yang secara langsung menurunkan sekresi aldosteron, mengurangi reabsorpsi $Na^+$ di ginjal, dan menurunkan tekanan darah.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 23 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 23</span>
+            <span class="topic-tag">Merancang Penyelidikan (Validitas Data)</span>
+        </div>
+        <div class="question-text">
+            Siswa menguji laju kerja enzim katalase dari ekstrak hati ayam terhadap substrat $H_2O_2$. Saat mengukur volume gas $O_2$ yang terbentuk, siswa menyadari bahwa tabung reaksi tidak tertutup rapat sehingga sebagian gas bocor keluar. Tindakan ilmiah yang paling tepat dilakukan oleh siswa untuk menjaga integritas data ilmiah adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Memanipulasi dan menambah angka data volume gas agar sesuai dengan teori di buku teks.</li>
+            <li class="option-item"><span class="option-label">B.</span> Mencatat kebocoran sebagai kesalahan sistematis (*experimental error*), mengabaikan data yang rusak, dan mengulang percobaan dengan peralatan yang terpasang kedap udara.</li>
+            <li class="option-item"><span class="option-label">C.</span> Menyalahkan anggota kelompok lain dan menghentikan seluruh kegiatan laboratorium.</li>
+            <li class="option-item"><span class="option-label">D.</span> Menyimpulkan bahwa enzim katalase tidak memproduksi gas oksigen.</li>
+            <li class="option-item"><span class="option-label">E.</span> Mengganti substrat $H_2O_2$ dengan air keran tanpa mencatatnya di laporan.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(23)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-23">
+            <div class="correct-answer">Kunci Jawaban: B</div>
+            <div class="explanation-content">
+                Sikap dan keterampilan proses sains yang jujur dan valid mewajibkan peneliti untuk mengidentifikasi kesalahan teknis (*experimental error*), tidak memalsukan data, serta mengulang eksperimen dengan kontrol alat yang benar (kedap udara) agar data sahih.
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 24 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 24</span>
+            <span class="topic-tag">Mengolah Data & Menyimpulkan</span>
+        </div>
+        <div class="question-text">
+            Diukur konsentrasi hormon estrogen, progesteron, LH, dan FSH dalam plasma darah seorang wanita selama siklus menstruasi 28 hari. Data puncak hormon dicatat sebagai berikut:
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Fase Siklus (Hari ke-)</th>
+                        <th>Hormon dengan Puncak Konsentrasi Tertinggi</th>
+                        <th>Kondisi Organ Reproduksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hari ke-12</td><td>Estrogen Puncak</td><td>Folikel De Graaf Matang</td></tr>
+                    <tr><td>Hari ke-14</td><td>LH Puncak (Lonjakan LH)</td><td>Ovulasi (Pelepasan Oosit Sekunder)</td></tr>
+                    <tr><td>Hari ke-21</td><td>Progesteron Puncak</td><td>Endometrium Sangat Tebal & Vaskuler</td></tr>
+                    <tr><td>Hari ke-28</td><td>Seluruh Hormon Anjlok Rendah</td><td>Menstruasi (Peluruhan Endometrium)</td></tr>
+                </tbody>
+            </table>
+            Berdasarkan analisis tabel di atas, kesimpulan yang paling tepat mengenai keterkaitan koordinasi hormon adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Lonjakan hormon LH pada hari ke-14 dipicu oleh kadar estrogen tinggi dan bertanggung jawab langsung memicu peristiwa ovulasi.</li>
+            <li class="option-item"><span class="option-label">B.</span> Progesteron berfungsi meluruhkan dinding endometrium pada hari ke-21.</li>
+            <li class="option-item"><span class="option-label">C.</span> Menstruasi terjadi akibat lonjakan hormon estrogen dan LH yang terlalu tinggi di akhir siklus.</li>
+            <li class="option-item"><span class="option-label">D.</span> Ovulasi terjadi ketika kadar seluruh hormon berada pada titik paling rendah.</li>
+            <li class="option-item"><span class="option-label">E.</span> Hormon FSH disekresikan oleh ovarium untuk mempertahankan ketebalan rahim.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(24)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-24">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Tabel menunjukkan bahwa estrogen mencapai puncak di hari ke-12 (umpan balik positif ke hipofisis), memicu lonjakan LH (*LH surge*) pada hari ke-14 yang secara langsung memicu rupture folikel dan pelepasan sel telur (ovulasi).
+            </div>
+        </div>
+    </div>
+
+    <!-- SOAL 25 -->
+    <div class="question-card">
+        <div class="question-header">
+            <span class="question-number">Soal 25</span>
+            <span class="topic-tag">Merancang Penyelidikan (Kesimpulan Holistik)</span>
+        </div>
+        <div class="question-text">
+            Siswa melakukan percobaan pengangkutan air pada tanaman pacar air (*Impatiens balsamina*). Tanaman ditaruh dalam larutan eosin merah. Setelah 2 jam, dibuat sayatan melintang batang dan diamati di bawah mikroskop. Terlihat warna merah hanya mengumpul pada jaringan berbentuk lingkaran tertentu di bagian dalam batang. Kesimpulan metodologis yang paling valid dari pengamatan mikroskopis ini adalah...
+        </div>
+        <ul class="options-list">
+            <li class="option-item"><span class="option-label">A.</span> Air dan garam mineral diangkut dari akar menuju daun secara spesifik melalui jaringan xilem.</li>
+            <li class="option-item"><span class="option-label">B.</span> Hasil fotosintesis diangkut dari daun ke seluruh tubuh melalui jaringan floem.</li>
+            <li class="option-item"><span class="option-label">C.</span> Pewarna eosin diserap oleh jaringan epidermis untuk mencegah penguapan air.</li>
+            <li class="option-item"><span class="option-label">D.</span> Batang pacar air tidak memiliki pembuluh pengangkut sama sekali.</li>
+            <li class="option-item"><span class="option-label">E.</span> Air berpindah secara translokasi aktif melalui jaringan kambium pembuluh.</li>
+        </ul>
+        <button class="explanation-toggle" onclick="toggleExplanation(25)">▸ Lihat Kunci Jawaban & Pembahasan</button>
+        <div class="explanation-box" id="exp-25">
+            <div class="correct-answer">Kunci Jawaban: A</div>
+            <div class="explanation-content">
+                Pewarna eosin merah berfungsi sebagai pencerat/tracer jalur transportasi air. Terakumulasinya warna merah secara khusus pada berkas pembuluh bagian dalam (xilem) membuktikan secara eksperimental bahwa xilem adalah jaringan spesifik yang mengangkut air dan mineral dari akar ke bagian atas tumbuhan.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleExplanation(id) {
+        const box = document.getElementById('exp-' + id);
+        if (box.classList.contains('active')) {
+            box.classList.remove('active');
+        } else {
+            box.classList.add('active');
+        }
+    }
+
+    function toggleAllExplanations() {
+        const boxes = document.querySelectorAll('.explanation-box');
+        const anyHidden = Array.from(boxes).some(box => !box.classList.contains('active'));
+        
+        boxes.forEach(box => {
+            if (anyHidden) {
+                box.classList.add('active');
+            } else {
+                box.classList.remove('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
